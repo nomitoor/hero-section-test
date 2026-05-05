@@ -1,43 +1,64 @@
-# Astro Starter Kit: Minimal
+# The Atelier — Hero Section
 
-```sh
-npm create astro@latest -- --template minimal
-```
+A refined, editorial-style hero section built with [Astro](https://astro.build). Designed for a high-end coaching studio ("The Atelier"), the layout features a full-bleed background image, typographic hierarchy using Cormorant Garamond and Inter, staggered fade-up entrance animations, and a fully responsive layout.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Preview
 
-## 🚀 Project Structure
+The hero renders a 16:9 full-bleed composition with:
 
-Inside of your Astro project, you'll see the following folders and files:
+- **Heading** — Cormorant Garamond, large serif display type
+- **Body copy** — German-language coaching positioning text
+- **Keyword strip** — spaced small-caps tags separated by a thin rule
+- **CTA button** — gold-toned ("Erstgespräch buchen") with hover transition
+- **Vignette overlay** — subtle radial gradient to anchor the composition
+- **Staggered animations** — each element fades and rises in sequence on load
+
+## Project Structure
 
 ```text
 /
 ├── public/
+│   ├── subject.png          # Hero background image
+│   └── favicon.svg / .ico
 ├── src/
-│   └── pages/
-│       └── index.astro
+│   ├── pages/
+│   │   └── index.astro      # Single-page hero layout
+│   └── styles/
+│       └── global.css       # Global resets / base styles
 └── package.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Tech Stack
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+| Tool | Version |
+| :--- | :------ |
+| [Astro](https://astro.build) | ^6.2.2 |
+| [Tailwind CSS](https://tailwindcss.com) | ^4.2.4 (via `@tailwindcss/vite`) |
+| Node.js | >=22.12.0 |
 
-Any static assets, like images, can be placed in the `public/` directory.
+Fonts loaded via Google Fonts: **Cormorant Garamond** (300, 400, italic) and **Inter** (300, 400).
 
-## 🧞 Commands
+## Getting Started
 
-All commands are run from the root of the project, from a terminal:
+```sh
+npm install
+npm run dev
+```
 
-| Command                   | Action                                           |
+The dev server starts at `http://localhost:4321`.
+
+## Commands
+
+| Command | Action |
 | :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+| `npm install` | Install dependencies |
+| `npm run dev` | Start local dev server at `localhost:4321` |
+| `npm run build` | Build production site to `./dist/` |
+| `npm run preview` | Preview the production build locally |
+| `npm run astro ...` | Run Astro CLI commands |
 
-## 👀 Want to learn more?
+## Design Notes
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- Background image is positioned at `60% center` on desktop, shifting to `68% center` on mobile to keep the subject visible.
+- On screens narrower than 640 px the hero switches from a fixed 16:9 aspect ratio to full-viewport-height (`100svh`) and overlays a warm gradient behind the text for legibility.
+- Color palette is anchored around deep espresso (`#1c1008`) and antique gold (`#8a7040`).
